@@ -1,0 +1,6 @@
+@FinBetApi_HostAddress = http://localhost:5130
+
+GET {{FinBetApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
