@@ -1,3 +1,4 @@
+using FinBetApi.Infrastructure.DataAccess.SqlServer;
 using FinBetApi.Infrastructure.DataAccess.SqlServer.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,5 +26,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+var db = builder.Services.BuildServiceProvider().GetRequiredService<FinBetDbContext>();
+db.Database.EnsureCreated();
 
 app.Run();
