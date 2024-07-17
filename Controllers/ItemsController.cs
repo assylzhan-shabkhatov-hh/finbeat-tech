@@ -1,5 +1,5 @@
-﻿using DataAccess.FB.SqlServer;
-using DataAccess.FB.SqlServer.Entities;
+﻿using FinBetApi.Infrastructure.DataAccess.SqlServer;
+using FinBetApi.Infrastructure.DataAccess.SqlServer.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

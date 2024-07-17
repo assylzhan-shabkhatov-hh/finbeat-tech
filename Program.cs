@@ -1,9 +1,9 @@
-using DataAccess.FB.SqlServer.Extensions;
+using FinBetApi.Infrastructure.DataAccess.SqlServer.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 // Add services to the container.
-builder.Services.AddFBDbContext(configuration);
+builder.Services.AddFinbetDbContext(configuration);
 
 
 builder.Services.AddControllers();
