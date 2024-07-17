@@ -1,6 +1,11 @@
-var builder = WebApplication.CreateBuilder(args);
+using FinBetApi.Infrastructure.DataAccess.SqlServer;
+using FinBetApi.Infrastructure.DataAccess.SqlServer.Extensions;
 
+var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 // Add services to the container.
+builder.Services.AddFinbetDbContext(configuration);
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -21,5 +26,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+var db = builder.Services.BuildServiceProvider().GetRequiredService<FinBetDbContext>();
+db.Database.EnsureCreated();
 
 app.Run();
